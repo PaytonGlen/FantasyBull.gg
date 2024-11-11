@@ -1,0 +1,237 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(135deg, #000000, rgb(207, 208, 209), #194a14, rgb(0, 0, 0));
+    color: #fbfdff;
+    padding-bottom: 200px;
+}
+
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.header {
+    background-color: rgba(40, 38, 38, 0.7); /* Changed to rgba for transparency */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-sizing: border-box;
+    font-size: 15px;
+    padding-right: 15px;
+    }
+
+.signup {
+    background-color: rgb(50, 166, 52);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    }
+
+.signup:hover {
+    opacity: 0.7;
+}
+
+.signup:active {
+     opacity: 1;
+}
+
+.login {
+    background-color: rgb(75, 78, 76);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    }
+
+.login:hover {
+    opacity: 0.7;
+}
+
+.login:active {
+    opacity: 1;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.logo-img {
+    width: 100px;
+    height: 100px;
+    margin-right: 10px;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.navigation a {
+    color: #ffffff;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.5s;
+}
+
+.navigation a:hover {
+    font-size: 21px;
+}
+
+.scrollable-section {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    padding: 20px;
+    gap: 15px;
+    scroll-behavior: smooth;
+    margin-top: 85px;
+}
+
+.scrollable-section::-webkit-scrollbar {
+    height: 8px;
+}
+
+.scrollable-section::-webkit-scrollbar-thumb {
+    background: #217118;
+    border-radius: 10px;
+}
+
+.game-card {
+    flex: 0 0 auto;
+    width: 120px;
+    height: 120px;
+    background-color:#217118;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: bold;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.game-card:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #164f10;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10; /* Increased z-index to ensure button is clickable */
+}
+
+.arrow-left {
+    left: 10px; /* Removed relative positioning and set consistent alignment with right arrow */
+}
+
+.arrow-left:hover {
+    opacity: 0.8;
+}
+
+.arrow-right {
+    right: 10px;
+    position: absolute; /* Set position to absolute to ensure consistency */
+}
+
+.arrow-right:hover {
+    opacity: 0.8;
+}
+
+.main-section {
+    background-color: #484747;
+}
+
+.contest-types {
+    background-color: #333;
+    padding: 40px 0;
+    text-align: center;
+}
+  
+.contest-types h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+  
+.contest-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+  
+.contest-card {
+    background-color:#217118;
+    color: #f9f5f5;
+    padding: 20px;
+    width: 20%;
+    border-radius: 10px;
+    text-align: center;
+}
+  
+.contest-card img {
+    width: 80px;
+    height: auto;
+    margin-bottom: 10px;
+}
+  
+.contest-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.game-name {
+    font-size: 16px; /* Adjust as per your preference */
+    color: #d1d1d1; /* Matching the text color from the second image */
+    text-align: center;
+    font-weight: bold;
+}
+
+.logo-image {
+    margin-bottom: 10px; /* Space between the logo and text */
+}
+
+.inside-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.fortnite-img {
+    width: 100%; /* Make the image fit the card */
+    height: 200px; /* Set the height of the image */
+    object-fit: cover;
+}
+
+.gamecard-img {
+    position: relative;
+    width: 100%;
+}
