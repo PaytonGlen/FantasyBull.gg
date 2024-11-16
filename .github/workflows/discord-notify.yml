@@ -13,6 +13,12 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         run: |
+          COMMIT_MESSAGE="${{ github.event.head_commit.message }}"
+          if [ -z "$COMMIT_MESSAGE" ]; then
+            COMMIT_MESSAGE="No commit message provided."
+          fi
           curl -X POST -H "Content-Type: application/json" \
-          -d "{\"username\": \"GitHub Bot\", \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\", \"content\": \"**New Commit on Main Branch**\n**Message:** '${{ github.event.head_commit.message }}'\n**Author:** 'PRG'\n**URL:** '${{ github.event.head_commit.url }}'\"}" \
+          -d "{\"username\": \"GitHub Bot\", \
+               \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\", \
+               \"content\": \"**New Commit on Main Branch**\n**Message:** $COMMIT_MESSAGE\n**Author:** 'PRG'\"}" \
           $DISCORD_WEBHOOK
