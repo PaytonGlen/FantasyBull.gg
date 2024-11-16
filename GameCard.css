@@ -1,0 +1,65 @@
+#game-cards-container {
+  width: 100%; /* Full width of the parent container */
+  overflow: hidden; /* Prevent overflow of the scrollable section */
+  position: relative;
+  align-items: center;
+}
+
+.scrollable-section {
+  display: flex; /* Align game cards horizontally */
+  gap: 10px; /* Space between game cards */
+  overflow-x: auto; /* Enable horizontal scrolling */
+  scroll-behavior: smooth; /* Smooth scroll */
+}
+
+.game-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: green; /* Card background */
+  padding: 1px;
+  border-radius: 10px;
+  width: 150px;
+  text-align: center;
+}
+
+.gamecard-img {
+  width: 100%; /* Make the image fit the card */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.game-name {
+  margin-top: 5px;
+  color: white;
+  font-weight: bold;
+}
+
+.arrow {
+  position: absolute;
+  background: #164f10;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10; /* Increased z-index to ensure button is clickable */
+}
+
+.arrow-left {
+  left: 10px; /* Removed relative positioning and set consistent alignment with right arrow */
+}
+
+.arrow-left:hover {
+  opacity: 0.8;
+}
+
+.arrow-right {
+  right: 10px;
+  position: absolute; /* Set position to absolute to ensure consistency */
+}
+
+.arrow-right:hover {
+  opacity: 0.8;
+}
