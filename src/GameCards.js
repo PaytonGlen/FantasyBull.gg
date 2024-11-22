@@ -1,6 +1,5 @@
 import React from "react";
 import GameCardItem from "./GameCardItem.js";
-import TZ2 from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/Images for Website/TZ2.svg";
 import RL from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/rocketleague/rocketleague1.webp";
 import LoL from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/LOL/LOL2.webp";
 import CSGO from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/CSGO/CSGO3.webp";

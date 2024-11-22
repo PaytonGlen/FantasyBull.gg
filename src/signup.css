@@ -1,69 +1,69 @@
 /* Center the signup form */
 .signup-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #1b1b1b;
-  }
-  
-  /* Form box */
-  .signup-box {
-    background-color: #262626;
-    padding: 40px;
-    border-radius: 10px;
-    text-align: center;
-    width: 300px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
-  }
-  
-  .signup-box h2 {
-    color: white;
-    margin-bottom: 20px;
-  }
-  
-  /* Input field styling */
-  .input-group {
-    margin-bottom: 20px;
-  }
-  
-  .input-group input {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #444;
-    background-color: #333;
-    color: #fff;
-    font-size: 14px;
-  }
-  
-  /* Sign up button styling */
-  .primary-btn {
-    background-color: #4b3eff;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    width: 100%;
-    cursor: pointer;
-    margin-bottom: 20px;
-    font-size: 16px;
-  }
-  
-  .primary-btn:hover {
-    background-color: #3627cf;
-  }
-  
-  /* Sign-in link */
-  .toggle-signup {
-    color: #bbb;
-  }
-  
-  .toggle-signup .login-link {
-    color: white;
-    text-decoration: none;
-  }
-  
-  .toggle-signup .login-link:hover {
-    text-decoration: underline;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1b1b1b;
+}
+
+/* Form box */
+.signup-box {
+  background-color: #262626;
+  padding: 40px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.signup-box h2 {
+  color: white;
+  margin-bottom: 20px;
+}
+
+/* Input field styling */
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+}
+
+/* Sign up button styling */
+.primary-btn {
+  background-color: #d4b713;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.primary-btn:hover {
+  background-color: rgb(50, 166, 52);
+}
+
+/* Sign-in link */
+.toggle-signup {
+  color: #bbb;
+}
+
+.toggle-signup .login-link {
+  color: white;
+  text-decoration: none;
+}
+
+.toggle-signup .login-link:hover {
+  text-decoration: underline;
+}

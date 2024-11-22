@@ -54,6 +54,12 @@ function App() {
           </nav>
         </header>
 
+        <Routes>
+          <Route path="/signup" element={<SignUp />} />
+          <Route path="/login" element={<Login />} />
+          {/* Additional routes can be added here */}
+        </Routes>
+
         <GameCards
           scrollLeftFunction={scrollLeftFunction}
           scrollRightFunction={scrollRightFunction}
@@ -81,12 +87,6 @@ function App() {
             </div>
           </div>
         </section>
-
-        <Routes>
-          <Route path="/signup" element={<SignUp />} />
-          <Route path="/login" element={<Login />} />
-          {/* Additional routes can be added here */}
-        </Routes>
       </div>
     </Router>
   );

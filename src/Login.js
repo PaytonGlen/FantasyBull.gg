@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./signup.css"; // Use the same CSS as SignUp
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -28,26 +29,46 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={onSubmit}>
-      <h2>Log In</h2>
-      <input
-        type="email"
-        placeholder="Email"
-        name="email"
-        value={email}
-        onChange={onChange}
-        required
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        name="password"
-        value={password}
-        onChange={onChange}
-        required
-      />
-      <button type="submit">Log In</button>
-    </form>
+    <div className="signup-container">
+      {" "}
+      {/* Reuse the same container */}
+      <div className="signup-box">
+        {" "}
+        {/* Reuse the same box */}
+        <h2>Log In</h2>
+        <form onSubmit={onSubmit}>
+          <div className="input-group">
+            <input
+              type="email"
+              placeholder="Email"
+              name="email"
+              value={email}
+              onChange={onChange}
+              required
+            />
+          </div>
+          <div className="input-group">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={onChange}
+              required
+            />
+          </div>
+          <button type="submit" className="primary-btn">
+            Log In
+          </button>
+        </form>
+        <div className="toggle-signup">
+          Don't have an account?{" "}
+          <a href="/signup" className="login-link">
+            Sign Up
+          </a>
+        </div>
+      </div>
+    </div>
   );
 };
 

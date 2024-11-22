@@ -1,30 +1,42 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-import { User } from "./models/user.js";
+import User from "./models/user.js";
 import bcrypt from "bcrypt";
 import { check, validationResult } from "express-validator";
 import jwt from "jsonwebtoken";
 import { auth } from "./middleware/auth.js";
 import cors from "cors";
 import axios from "axios";
+import morgan from "morgan";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+import path from "path";
 
-dotenv.config();
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+dotenv.config({ path: "./server/.env" });
 
 const PORT = process.env.PORT || 5001;
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000" }));
 
+app.use(morgan("dev")); // log every request to the console
+
 // MongoDB Connection
 mongoose
-  .connect(process.env.MONGO_URL)
-  .then(() => console.log("MongoDB connected"))
-  .catch((err) => console.log(err));
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected to MongoDB"))
+  .catch((err) => console.error("MongoDB connection error:", err));
 
 // Home route
 app.get("/", (req, res) => {
-  res.send("Hello, world!");
+  const indexPath = path.join(__dirname, "../public/index.html");
+  res.sendFile(indexPath);
 });
 
 // Route for fetching player stats by summoner name

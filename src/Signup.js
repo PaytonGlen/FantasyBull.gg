@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import './signup.css'; // Ensure you create this file
+import React, { useState } from "react";
+import axios from "axios";
+import "./signup.css"; // Ensure you create this file
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
+    username: "",
+    email: "",
+    password: "",
   });
 
   const { username, email, password } = formData;
@@ -17,11 +17,14 @@ const SignUp = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5001/register', formData);
+      const response = await axios.post(
+        "http://localhost:5001/register",
+        formData
+      );
       alert(response.data.msg); // Handle the response message
     } catch (error) {
-      console.error('Error signing up:', error.response.data);
-      alert('Error signing up');
+      console.error("Error signing up:", error.response.data);
+      alert("Error signing up");
     }
   };
 
@@ -60,10 +63,15 @@ const SignUp = () => {
               required
             />
           </div>
-          <button type="submit" className="primary-btn">Sign Up</button>
+          <button type="submit" className="primary-btn">
+            Sign Up
+          </button>
         </form>
         <div className="toggle-signup">
-          Already have an account? <a href="/login" className="login-link">Sign In</a>
+          Already have an account?{" "}
+          <a href="/login" className="login-link">
+            Sign In
+          </a>
         </div>
       </div>
     </div>

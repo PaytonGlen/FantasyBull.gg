@@ -1,5 +1,5 @@
 {
-  "name": "eSportZoneWebsite",
+  "name": "FantasyBull",
   "version": "1.0.0",
   "type": "module",
   "description": "",
@@ -19,6 +19,7 @@
     "express-validator": "^7.2.0",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^4.17.2",
-    "mongoose": "^8.7.0"
+    "mongoose": "^8.7.0",
+    "morgan": "^1.10.0"
   }
 }
