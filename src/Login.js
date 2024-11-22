@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
 
   const { email, password } = formData;
@@ -15,12 +15,15 @@ const Login = () => {
   const onSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5001/login', formData);
+      const response = await axios.post(
+        "http://localhost:5001/login",
+        formData
+      );
       alert(response.data.msg); // Handle the response message
-      localStorage.setItem('token', response.data.token); // Store the JWT token
+      localStorage.setItem("token", response.data.token); // Store the JWT token
     } catch (error) {
-      console.error('Error logging in:', error.response.data);
-      alert('Error logging in');
+      console.error("Error logging in:", error.response.data);
+      alert("Error logging in");
     }
   };
 

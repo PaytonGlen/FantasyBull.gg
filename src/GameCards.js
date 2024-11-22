@@ -13,6 +13,7 @@ import smashbros from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/
 import sc2 from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/starcraft/starcraft.webp";
 import mw3 from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/COD/MW3.webp";
 import "./GameCard.css";
+import fifa from "/Users/pglen/Desktop/1TourneyZone/TourneyZone/src/images/Fifa/Fifa.webp";
 
 const games = [
   { image: LoL, alt: "League of Legends", name: "LoL" },
@@ -26,6 +27,7 @@ const games = [
   { image: smashbros, alt: "Super Smash Bros", name: "Super Smash Bros" },
   { image: sc2, alt: "Starcraft", name: "Starcraft" },
   { image: mw3, alt: "Call of Duty", name: "Call of Duty MW3" },
+  { image: fifa, alt: "FIFA", name: "FIFA" },
 ];
 
 function GameCards({

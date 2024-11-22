@@ -21,6 +21,12 @@
   border-radius: 10px;
   width: 150px;
   text-align: center;
+  transition: transform 0.3s ease; /* Smooth transition for the size change */
+}
+
+.game-card:hover {
+  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .gamecard-img {
