@@ -1,14 +1,16 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./signup.css"; // Use the same CSS as SignUp
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ closeModal, setIsLoggedIn }) => {
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
 
   const [errors, setErrors] = useState("");
+  const navigate = useNavigate(); // Use navigate hook to redirect
 
   const { email, password } = formData;
 
@@ -25,12 +27,15 @@ const Login = () => {
       );
       alert(response.data.msg); // Handle the response message
       localStorage.setItem("token", response.data.token); // Store the JWT token
+      setIsLoggedIn(true); // Update the state to reflect that the user is logged in
+      navigate("/"); // Redirect to the home page
     } catch (error) {
       console.error("Error logging in:", error.response?.data);
       if (error.response && error.response.data && error.response.data.errors) {
         setErrors(error.response.data.msg);
       } else {
-        setErrors(error.response.data.msg);
+        console.error("Error logging in:", error.response?.data);
+        setErrors(error.response?.data?.msg || "Error logging in");
       }
     }
   };
@@ -50,6 +55,13 @@ const Login = () => {
         )}
         <form onSubmit={onSubmit}>
           <div className="input-group">
+            <button
+              className="close-btn"
+              onClick={closeModal}
+              aria-label="Close"
+            >
+              &times;
+            </button>
             <input
               type="email"
               placeholder="Email"

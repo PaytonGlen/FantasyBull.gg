@@ -67,3 +67,19 @@
 .toggle-signup .login-link:hover {
   text-decoration: underline;
 }
+
+.close-btn {
+  position: relative;
+  top: -75px;
+  right: -155px;
+  background: transparent;
+  border: none;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #ff4d4f; /* Changes color on hover */
+}

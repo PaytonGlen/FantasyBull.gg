@@ -14,9 +14,10 @@
 
 .game-card {
   display: flex;
+  flex: 0 0 auto;
   flex-direction: column;
   align-items: center;
-  background-color: green; /* Card background */
+  background-color: rgba(0, 0, 0, 0); /* Transparent background */
   padding: 1px;
   border-radius: 10px;
   width: 150px;
