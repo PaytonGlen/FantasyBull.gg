@@ -8,6 +8,8 @@ const Login = () => {
     password: "",
   });
 
+  const [errors, setErrors] = useState("");
+
   const { email, password } = formData;
 
   const onChange = (e) =>
@@ -15,6 +17,7 @@ const Login = () => {
 
   const onSubmit = async (e) => {
     e.preventDefault();
+    setErrors(""); // Clear any previous errors
     try {
       const response = await axios.post(
         "http://localhost:5001/login",
@@ -23,8 +26,12 @@ const Login = () => {
       alert(response.data.msg); // Handle the response message
       localStorage.setItem("token", response.data.token); // Store the JWT token
     } catch (error) {
-      console.error("Error logging in:", error.response.data);
-      alert("Error logging in");
+      console.error("Error logging in:", error.response?.data);
+      if (error.response && error.response.data && error.response.data.errors) {
+        setErrors(error.response.data.msg);
+      } else {
+        setErrors(error.response.data.msg);
+      }
     }
   };
 
@@ -36,6 +43,11 @@ const Login = () => {
         {" "}
         {/* Reuse the same box */}
         <h2>Log In</h2>
+        {errors && (
+          <p className="error-msg" style={{ color: "red" }}>
+            {errors}
+          </p>
+        )}
         <form onSubmit={onSubmit}>
           <div className="input-group">
             <input

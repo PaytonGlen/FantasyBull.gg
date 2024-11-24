@@ -61,7 +61,7 @@ app.post(
   [
     check("email", "Please include a valid email").isEmail(),
     check("password", "Password must be 6 or more characters").isLength({
-      min: 6,
+      min: 8,
     }),
   ],
   async (req, res) => {
@@ -82,10 +82,12 @@ app.post(
 
       user = new User({ username, email, password: hashedPassword });
       await user.save();
+      console.log("User saved:", user);
       res.status(200).json({ msg: "User registered successfully" });
     } catch (err) {
       console.log(err.message);
       res.status(500).send("Server error");
+      console.error("Error saving user:", err);
     }
   }
 );
@@ -107,11 +109,11 @@ app.post(
     try {
       let user = await User.findOne({ email });
       if (!user) {
-        return res.status(400).json({ msg: "Invalid login credentials" });
+        return res.status(400).json({ msg: "Invalid Email/Password." });
       }
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch) {
-        return res.status(400).json({ msg: "Invalid login credentials" });
+        return res.status(400).json({ msg: "Invalid Email/Password." });
       }
 
       const payload = { user: { id: user.id } };
