@@ -17,7 +17,6 @@ const Header = () => {
         {isLoggedIn ? (
           <>
             <Link to="/">Home</Link>
-            <Link to="/tourney-zone">Tourney-Zone</Link>
             <Link to="/make-your-team">Make your team</Link>
             <Link to="/how-to-play">How to Play</Link>
             <Link to="/download">Download</Link>

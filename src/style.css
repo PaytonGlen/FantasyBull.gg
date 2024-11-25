@@ -3,7 +3,7 @@ body {
   font-family: Arial, sans-serif;
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
-  background: linear-gradient(to bottom, #217118, #000000);
+  background: linear-gradient(to bottom, rgb(10, 50, 137), #000000);
   background-attachment: fixed;
   color: #ffffff;
   padding-bottom: 200px;
@@ -41,7 +41,7 @@ body {
 }
 
 .signup {
-  background-color: rgb(50, 166, 52);
+  background-color: rgb(10, 50, 137);
   color: #ffffff;
   border: none;
   padding: 10px 20px;
@@ -124,7 +124,7 @@ body {
 }
 
 .scrollable-section::-webkit-scrollbar-thumb {
-  background: #217118;
+  background: rgb(25, 70, 157);
   border-radius: 10px;
 }
 
@@ -132,7 +132,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: #164f10;
+  background: rgb(25, 70, 157);
   color: #ffffff;
   border: none;
   padding: 10px;
@@ -181,7 +181,7 @@ body {
 }
 
 .contest-card {
-  background-color: #217118;
+  background-color: rgba(0, 0, 0, 0);
   color: #f9f5f5;
   padding: 20px;
   width: 20%;
@@ -207,4 +207,13 @@ body {
 .inside-card {
   display: flex;
   flex-direction: column;
+}
+
+.icon {
+  flex: 1;
+  font-size: 40px;
+  margin-bottom: 10px;
+  padding: 100px;
+  width: 100px;
+  height: 100px;
 }

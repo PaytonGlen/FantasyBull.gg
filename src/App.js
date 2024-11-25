@@ -5,6 +5,8 @@ import Login from "./Login.js";
 import GameCards from "./GameCards.js";
 import Header from "./Header.js";
 import { AuthProvider } from "./AuthContext.js"; // Provide context at the top level
+import MoneyBag from "./images/Images for Website/SecureMoneyBag.svg";
+import MoneyStack from "./images/Images for Website/StackOfMoney.svg";
 
 import "./style.css";
 import "./App.css";
@@ -68,6 +70,39 @@ function App() {
               </div>
             </div>
           </section>
+        </div>
+        <div className="FantasyBull-About">
+          <h3>Master Your Game & Conquer eSports!</h3>
+          <p>
+            Fantasy Bull lets you turn your passion for eSports into real wins.
+          </p>
+          <p>
+            Pick your players, predict their stats, and win up to 200x your
+            entry fee.
+          </p>
+          <p>Simple, exciting, and rewarding!</p>
+        </div>
+        <div className="Icon-section">
+          <div className="Icon">
+            <img src={MoneyBag} alt="MoneyBag" />
+            <h3>Secure</h3>
+            <p>Your money is safe with us.</p>
+          </div>
+          <div className="Icon">
+            <img src={MoneyStack} alt="MoneyStack" />
+            <h3>Win Big</h3>
+            <p>Win up to 200x your entry fee!</p>
+          </div>
+        </div>
+
+        <div className="FantasyBull-Mantra">
+          <h2>Our Mantra</h2>
+          <p>
+            We are dedicated to providing a fun and safe environment for all
+            users. We strive to provide the best experience for all users and
+            will continue to improve our platform to meet the needs of our
+            users.
+          </p>
         </div>
       </Router>
     </AuthProvider>
