@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./signup.css"; // Use the same CSS as SignUp
 import { useNavigate } from "react-router-dom";
@@ -13,6 +13,14 @@ const Login = ({ closeModal, setIsLoggedIn }) => {
   const navigate = useNavigate(); // Use navigate hook to redirect
 
   const { email, password } = formData;
+
+  useEffect(() => {
+    // Redirect to home if already logged in
+    const token = localStorage.getItem("token");
+    if (token) {
+      navigate("/"); // Already logged in, go to home page
+    }
+  }, [navigate]);
 
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -29,8 +37,9 @@ const Login = ({ closeModal, setIsLoggedIn }) => {
       localStorage.setItem("token", response.data.token); // Store the JWT token
       setIsLoggedIn(true); // Update the state to reflect that the user is logged in
       navigate("/"); // Redirect to the home page
+      console.log("Navigating to home page");
     } catch (error) {
-      console.error("Error logging in:", error.response?.data);
+      console.error("Error logging in:", error);
       if (error.response && error.response.data && error.response.data.errors) {
         setErrors(error.response.data.msg);
       } else {

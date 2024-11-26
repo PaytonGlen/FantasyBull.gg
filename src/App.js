@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./Signup.js";
 import Login from "./Login.js";
@@ -34,13 +34,13 @@ function App() {
 
   return (
     <AuthProvider>
-      {/* AuthProvider now properly wraps the Router and App components */}
       <Router>
         <div>
           <Header />
           <Routes>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/" element={<GameCards />} />
           </Routes>
           <GameCards
             scrollLeftFunction={scrollLeftFunction}
