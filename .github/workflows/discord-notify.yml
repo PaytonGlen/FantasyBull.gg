@@ -20,5 +20,5 @@ jobs:
           curl -X POST -H "Content-Type: application/json" \
           -d "{\"username\": \"GitHub Bot\", \
                \"avatar_url\": \"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png\", \
-               \"content\": \"**New Commit on Main Branch**\n**Message:** $COMMIT_MESSAGE\n**Author:** PRG\"}" \
+               \"content\": \"**New Commit on FantasyBull**\n**Message:** $COMMIT_MESSAGE\n**Author:** PRG\"}" \
           $DISCORD_WEBHOOK
