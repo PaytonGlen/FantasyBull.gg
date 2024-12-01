@@ -1,7 +1,7 @@
 import express from "express";
 import axios from "axios";
 import dotenv from "dotenv";
-import { games } from "../games.js";
+import games from "../games.js";
 
 dotenv.config();
 
@@ -62,11 +62,9 @@ router.get("/matches/:gameSlug", async (req, res) => {
       "Error fetching matches or tournaments from PandaScore:",
       err
     );
-    res
-      .status(500)
-      .json({
-        error: "Failed to fetch matches or tournaments from PandaScore",
-      });
+    res.status(500).json({
+      error: "Failed to fetch matches or tournaments from PandaScore",
+    });
   }
 });
 

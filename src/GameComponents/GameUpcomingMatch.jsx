@@ -1,11 +1,11 @@
 import React from "react";
 
-function GameUpcomingMatches({ gameName, matches }) {
+function GameUpcomingMatches({ game, matches }) {
   return (
     <div className="upcoming-matches-container">
       {/* Header */}
       <header className="game-header">
-        <h1>{gameName} - Upcoming Matches</h1>
+        <h1>{game} - Upcoming Matches</h1>
       </header>
 
       {/* Matches List */}

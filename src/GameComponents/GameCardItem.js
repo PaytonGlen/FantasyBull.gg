@@ -1,4 +1,5 @@
 import React from "react";
+import { game } from "./game.js";
 
 const GameCardItem = ({ image, alt, name, onClick }) => (
   <div className="game-card" onClick={onClick}>

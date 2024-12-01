@@ -1,21 +1,21 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./Registration/Signup.js";
 import Login from "./Registration/Login.js";
-import GameCards from "./GameComponents/GameCards.js";
 import Header from "./UIDisplay/Header.js";
 import { AuthProvider } from "./AuthContext.js"; // Provide context at the top level
 import MoneyBag from "./images/Images for Website/SecureMoneyBag.svg";
 import MoneyStack from "./images/Images for Website/StackOfMoney.svg";
-import { useNavigate } from "react-router-dom";
 
 import "./style.css";
 import "./App.css";
+import Dashboard from "./GameComponents/GameDashboard.jsx";
 
 function App() {
-  const scrollableSectionRef = useRef(null);
-  const [selectedGame, setSelectedGame] = useState(null);
+  //const scrollableSectionRef = useRef(null);
+  //const [selectedGame, setSelectedGame] = useState(null);
 
+  /*
   const scrollLeftFunction = () => {
     if (scrollableSectionRef.current) {
       scrollableSectionRef.current.scrollBy({
@@ -38,7 +38,7 @@ function App() {
   const handleCardClick = (game) => {
     console.log("Game clicked:", game);
     setSelectedGame(game); // Set the selected game
-  };
+  }; */
 
   return (
     <AuthProvider>
@@ -46,15 +46,10 @@ function App() {
         <div>
           <Header />
           <Routes>
+            <Route path="/" element={<Dashboard />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
           </Routes>
-          <GameCards
-            scrollLeftFunction={scrollLeftFunction}
-            scrollRightFunction={scrollRightFunction}
-            scrollableSectionRef={scrollableSectionRef}
-            handleCardClick={handleCardClick}
-          />
           <section className="contest-types">
             <h2>How to play</h2>
             <div className="contest-cards">

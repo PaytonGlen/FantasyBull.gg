@@ -3,19 +3,24 @@ import GameCards from "./GameCards";
 import axios from "axios";
 import GameUpcomingMatches from "./GameUpcomingMatch";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const Dashboard = () => {
   const [selectedGame, setSelectedGame] = useState(null); // Selected game state
   const [matches, setMatches] = useState([]); // Matches state
   const [loading, setLoading] = useState(false); // Loading state
   const [error, setError] = useState(null); // Error state
 
-  console.log("handleCardClick", handleCardClick);
-
   // Handle game card click
   const handleCardClick = (game) => {
+    console.log("Selected Game Slug:", game.slug);
     console.log("Game clicked:", game);
     setSelectedGame(game); // Set the selected game
   };
+
+  useEffect(() => {
+    console.log("selectedGame:", selectedGame);
+  }, [selectedGame]);
 
   // Fetch matches for the selected game
   useEffect(() => {
@@ -26,8 +31,9 @@ const Dashboard = () => {
       setError(null);
 
       try {
+        console.log("Attempting to fetch matches for:", selectedGame);
         const response = await axios.get(
-          `${process.env.REACT_APP_API_URL}/matches/upcoming`,
+          `${API_URL}/api/matches/${selectedGame.slug}`,
           {
             params: {
               "filter[videogame_id]": selectedGame.id,

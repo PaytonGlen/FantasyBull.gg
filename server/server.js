@@ -12,6 +12,7 @@ import morgan from "morgan";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import path from "path";
+import gameAPI from "./routes/gameAPI.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -21,6 +22,7 @@ const PORT = process.env.PORT || 5001;
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000" }));
+app.use("/api", gameAPI);
 
 app.use(morgan("dev")); // log every request to the console
 
