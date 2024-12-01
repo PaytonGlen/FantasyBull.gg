@@ -50,6 +50,7 @@ function GameCards({
             image={game.image}
             alt={game.alt}
             name={game.name}
+            onClick={() => handleCardClick(game)}
           />
         ))}
       </div>

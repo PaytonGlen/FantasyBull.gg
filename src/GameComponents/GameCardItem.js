@@ -1,7 +1,7 @@
 import React from "react";
 
-const GameCardItem = ({ image, alt, name }) => (
-  <div className="game-card">
+const GameCardItem = ({ image, alt, name, onClick }) => (
+  <div className="game-card" onClick={onClick}>
     <div className="game-name">
       <img src={image} alt={alt} className="gamecard-img" />
       {name}

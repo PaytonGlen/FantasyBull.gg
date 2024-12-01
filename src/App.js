@@ -1,9 +1,9 @@
 import React, { useRef, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import SignUp from "./Signup.js";
-import Login from "./Login.js";
-import GameCards from "./GameCards.js";
-import Header from "./Header.js";
+import SignUp from "./Registration/Signup.js";
+import Login from "./Registration/Login.js";
+import GameCards from "./GameComponents/GameCards.js";
+import Header from "./UIDisplay/Header.js";
 import { AuthProvider } from "./AuthContext.js"; // Provide context at the top level
 import MoneyBag from "./images/Images for Website/SecureMoneyBag.svg";
 import MoneyStack from "./images/Images for Website/StackOfMoney.svg";
@@ -40,7 +40,6 @@ function App() {
           <Routes>
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/" element={<GameCards />} />
           </Routes>
           <GameCards
             scrollLeftFunction={scrollLeftFunction}

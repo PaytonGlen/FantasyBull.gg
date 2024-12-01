@@ -89,6 +89,26 @@ app.post(
   }
 );
 
+// Get User Route
+app.get("/user", auth, async (req, res) => {
+  try {
+    // Use req.user.id to find the user in the database
+    const user = await User.findById(req.user.id);
+
+    if (!user) {
+      // If user is not found, return a 404 response
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    // Respond with the user data
+    res.json(user);
+  } catch (err) {
+    console.error("Error fetching user:", err);
+    // Handle unexpected server errors
+    res.status(500).json({ msg: "Server error while fetching user" });
+  }
+});
+
 // Login Route
 app.post(
   "/login",

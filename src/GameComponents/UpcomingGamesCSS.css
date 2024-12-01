@@ -1,0 +1,57 @@
+.upcoming-matches-container {
+  padding: 20px;
+  color: white;
+  background-color: #121212; /* Dark esports theme */
+}
+
+.game-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.matches-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.match-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e1e1e;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.match-info {
+  flex: 2;
+}
+
+.teams {
+  display: flex;
+  flex: 3;
+  justify-content: space-between;
+}
+
+.team {
+  margin-right: 20px;
+}
+
+.betting {
+  flex: 1;
+  text-align: center;
+}
+
+.view-details {
+  background-color: #ff4500;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.view-details:hover {
+  background-color: #ff571a;
+}

@@ -1,15 +1,19 @@
 import React, { createContext, useState, useEffect } from "react";
+//import user from "../server/models/user";
 
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [users, setUsers] = useState(null);
 
   useEffect(() => {
     // Check if the user is logged in by looking for a token in localStorage
     const token = localStorage.getItem("token");
     if (token) {
       setIsLoggedIn(true);
+      const userData = { bank: 1000 };
+      setUsers(userData);
     }
   }, []);
 
@@ -20,7 +24,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, setIsLoggedIn, handleLogout }}>
+    <AuthContext.Provider
+      value={{ isLoggedIn, setIsLoggedIn, handleLogout, users }}
+    >
       {children}
     </AuthContext.Provider>
   );
