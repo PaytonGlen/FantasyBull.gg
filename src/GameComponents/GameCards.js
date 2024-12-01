@@ -33,7 +33,10 @@ function GameCards({
   scrollLeftFunction,
   scrollRightFunction,
   scrollableSectionRef,
+  handleCardClick,
 }) {
+  console.log("handleCardClick", handleCardClick);
+
   return (
     <div
       id="game-cards-container"
@@ -44,9 +47,9 @@ function GameCards({
         ‹
       </button>
       <div className="scrollable-section" ref={scrollableSectionRef}>
-        {games.map((game, index) => (
+        {games.map((game) => (
           <GameCardItem
-            key={index}
+            key={game.name}
             image={game.image}
             alt={game.alt}
             name={game.name}

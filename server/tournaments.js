@@ -8,11 +8,13 @@ const fetchTournamentsFromAPI = async (endpoint) => {
     const response = await fetch(endpoint, {
       headers: { Authorization: `Bearer ${process.env.PANDASCORE_API_KEY}` },
     });
+
     if (!response.ok) throw new Error(`API Error: ${response.statusText}`);
+
     return await response.json();
   } catch (error) {
     console.error("Error fetching tournaments:", error);
-    return [];
+    return []; // Return an empty array on error
   }
 };
 
@@ -31,11 +33,18 @@ export const updateTournamentsCache = async (videogameId) => {
     fetchTournamentsFromAPI(runningEndpoint),
   ]);
 
+  // Cache the results
   tournamentsCache[videogameId] = { upcoming, running };
 
   console.log(`Tournaments cache updated for game ID ${videogameId}`);
 };
 
 // Get tournaments for a specific game from the cache
-export const getTournaments = (videogameId) =>
-  tournamentsCache[videogameId] || { upcoming: [], running: [] };
+export const getTournaments = (videogameId) => {
+  if (!videogameId) {
+    console.error("No videogameId provided to retrieve tournaments!");
+    return { upcoming: [], running: [] }; // Return empty arrays to handle gracefully
+  }
+
+  return tournamentsCache[videogameId] || { upcoming: [], running: [] };
+};

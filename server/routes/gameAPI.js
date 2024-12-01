@@ -19,21 +19,54 @@ router.get("/matches/:gameSlug", async (req, res) => {
   }
 
   try {
-    // Fetch upcoming matches for the game using its ID
-    const response = await axios.get(
-      `https://api.pandascore.co/matches/upcoming`,
+    // Fetch upcoming tournaments for the game
+    const tournamentsResponse = await axios.get(
+      `https://api.pandascore.co/tournaments/upcoming`,
       {
         params: {
-          videogame: game.id, // Use game ID for precise filtering
+          "filter[videogame_id]": game.id, // Use game ID for filtering
           token: process.env.PANDASCORE_API_KEY,
         },
       }
     );
 
-    res.json(response.data); // Send the API response to the client
+    const tournaments = tournamentsResponse.data;
+
+    // Create a map of tournament IDs to their names
+    const tournamentMap = tournaments.reduce((map, tournament) => {
+      map[tournament.id] = tournament.name;
+      return map;
+    }, {});
+
+    // Fetch upcoming matches for the game
+    const matchesResponse = await axios.get(
+      `https://api.pandascore.co/matches/upcoming`,
+      {
+        params: {
+          "filter[videogame_id]": game.id,
+          token: process.env.PANDASCORE_API_KEY,
+        },
+      }
+    );
+
+    // Enrich matches with tournament names
+    const matches = matchesResponse.data.map((match) => ({
+      ...match,
+      tournament_name:
+        tournamentMap[match.tournament_id] || "Unknown Tournament",
+    }));
+
+    res.json(matches); // Send the enriched matches to the client
   } catch (err) {
-    console.error("Error fetching matches from PandaScore:", err);
-    res.status(500).json({ error: "Failed to fetch matches from PandaScore" });
+    console.error(
+      "Error fetching matches or tournaments from PandaScore:",
+      err
+    );
+    res
+      .status(500)
+      .json({
+        error: "Failed to fetch matches or tournaments from PandaScore",
+      });
   }
 });
 

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./Registration/Signup.js";
 import Login from "./Registration/Login.js";
@@ -7,12 +7,14 @@ import Header from "./UIDisplay/Header.js";
 import { AuthProvider } from "./AuthContext.js"; // Provide context at the top level
 import MoneyBag from "./images/Images for Website/SecureMoneyBag.svg";
 import MoneyStack from "./images/Images for Website/StackOfMoney.svg";
+import { useNavigate } from "react-router-dom";
 
 import "./style.css";
 import "./App.css";
 
 function App() {
   const scrollableSectionRef = useRef(null);
+  const [selectedGame, setSelectedGame] = useState(null);
 
   const scrollLeftFunction = () => {
     if (scrollableSectionRef.current) {
@@ -32,6 +34,12 @@ function App() {
     }
   };
 
+  // Handle game card click
+  const handleCardClick = (game) => {
+    console.log("Game clicked:", game);
+    setSelectedGame(game); // Set the selected game
+  };
+
   return (
     <AuthProvider>
       <Router>
@@ -45,6 +53,7 @@ function App() {
             scrollLeftFunction={scrollLeftFunction}
             scrollRightFunction={scrollRightFunction}
             scrollableSectionRef={scrollableSectionRef}
+            handleCardClick={handleCardClick}
           />
           <section className="contest-types">
             <h2>How to play</h2>
