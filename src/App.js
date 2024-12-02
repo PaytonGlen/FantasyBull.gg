@@ -46,7 +46,13 @@ function App() {
         <div>
           <Header />
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route
+              path="/dashboard"
+              element={
+                isAuthenticated ? <Dashboard /> : <Navigate to="/login" />
+              }
+            />
+
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
           </Routes>
