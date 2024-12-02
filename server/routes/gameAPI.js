@@ -27,6 +27,9 @@ router.get("/matches/:gameSlug", async (req, res) => {
           "filter[videogame_id]": game.id, // Use game ID for filtering
           token: process.env.PANDASCORE_API_KEY,
         },
+        headers: {
+          accept: "application/json",
+        },
       }
     );
 
@@ -46,17 +49,41 @@ router.get("/matches/:gameSlug", async (req, res) => {
           "filter[videogame_id]": game.id,
           token: process.env.PANDASCORE_API_KEY,
         },
+        headers: {
+          accept: "application/json",
+        },
       }
     );
 
-    // Enrich matches with tournament names
-    const matches = matchesResponse.data.map((match) => ({
-      ...match,
-      tournament_name:
-        tournamentMap[match.tournament_id] || "Unknown Tournament",
+    // Transform matches data for front-end consumption
+    const transformData = matchesResponse.data.map((match) => ({
+      matchId: match.id,
+      matchName: match.name,
+      status: match.status,
+      numberOfGames: match.number_of_games,
+      beginAt: match.begin_at,
+      league: {
+        name: match.league.name,
+        imageUrl: match.league.image_url,
+      },
+      teams: match.opponents.map((opponent) => ({
+        teamId: opponent.opponent.id,
+        name: opponent.opponent.name,
+        acronym: opponent.opponent.acronym,
+        imageUrl: opponent.opponent.image_url,
+        score:
+          match.results.find(
+            (result) => result.team_id === opponent.opponent.id
+          )?.score || 0,
+      })),
+      streams: match.streams_list.map((stream) => ({
+        language: stream.language,
+        embedUrl: stream.embed_url,
+        rawUrl: stream.raw_url,
+      })),
     }));
 
-    res.json(matches); // Send the enriched matches to the client
+    res.json(transformData); // Send the transformed matches data to the client
   } catch (err) {
     console.error(
       "Error fetching matches or tournaments from PandaScore:",

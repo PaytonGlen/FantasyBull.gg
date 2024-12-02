@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import GameCards from "./GameCards";
 import axios from "axios";
-import GameUpcomingMatches from "./GameUpcomingMatch";
-
-const API_URL = process.env.REACT_APP_API_URL;
+import MatchCard from "../Matches/MatchCard";
 
 const Dashboard = () => {
   const [selectedGame, setSelectedGame] = useState(null); // Selected game state
@@ -18,10 +16,6 @@ const Dashboard = () => {
     setSelectedGame(game); // Set the selected game
   };
 
-  useEffect(() => {
-    console.log("selectedGame:", selectedGame);
-  }, [selectedGame]);
-
   // Fetch matches for the selected game
   useEffect(() => {
     if (!selectedGame) return; // Do nothing if no game is selected
@@ -33,37 +27,11 @@ const Dashboard = () => {
       try {
         console.log("Attempting to fetch matches for:", selectedGame);
         const response = await axios.get(
-          `${API_URL}/api/matches/${selectedGame.slug}`,
-          {
-            params: {
-              "filter[videogame_id]": selectedGame.id,
-              "filter[tier]": "s,a",
-              token: process.env.REACT_APP_PANDASCORE_API_KEY,
-            },
-          }
+          `http://localhost:5001/api/matches/${selectedGame.slug}`
         );
 
-        // Transform match data for display
-        const formattedMatches = response.data.map((match) => ({
-          title: match.name,
-          time: new Date(match.scheduled_at).toLocaleString(),
-          details: `Best of ${match.number_of_games}`,
-          team1: {
-            name: match.opponents[0]?.opponent.name || "TBD",
-            winPercentage:
-              match.opponents[0]?.opponent.stats?.win_percentage || "N/A",
-            last5: match.opponents[0]?.opponent.stats?.last_5 || [],
-          },
-          team2: {
-            name: match.opponents[1]?.opponent.name || "TBD",
-            winPercentage:
-              match.opponents[1]?.opponent.stats?.win_percentage || "N/A",
-            last5: match.opponents[1]?.opponent.stats?.last_5 || [],
-          },
-          odds: match.odds || "N/A",
-        }));
-
-        setMatches(formattedMatches);
+        // Set matches data directly from the response
+        setMatches(response.data);
       } catch (err) {
         setError("Failed to fetch matches. Please try again later.");
         console.error("Error fetching matches:", err);
@@ -89,7 +57,11 @@ const Dashboard = () => {
         ) : error ? (
           <p style={{ color: "red" }}>{error}</p>
         ) : selectedGame ? (
-          <GameUpcomingMatches gameName={selectedGame.name} matches={matches} />
+          <div className="match-cards">
+            {matches.map((match) => (
+              <MatchCard key={match.matchId} match={match} />
+            ))}
+          </div>
         ) : (
           <p>Please select a game to view upcoming matches.</p>
         )}
