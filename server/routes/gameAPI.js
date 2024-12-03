@@ -6,6 +6,10 @@ import games from "../games.js";
 dotenv.config();
 
 const router = express.Router();
+const PANDASCORE_API_KEY = process.env.PANDASCORE_API_KEY;
+const PANDASCORE_API_URL = process.env.PANDASCORE_API_URL;
+const PANDASCORE_TOURNAMENT_URL = process.env.PANDA_API_URL_TOURNAMENTS;
+const PANDASCORE_MATCH_URL = process.env.PANDA_API_URL_MATCHES;
 
 // Fetch upcoming matches for a specific game
 router.get("/matches/:gameSlug", async (req, res) => {
@@ -20,15 +24,16 @@ router.get("/matches/:gameSlug", async (req, res) => {
 
   try {
     // Fetch upcoming tournaments for the game
+
     const tournamentsResponse = await axios.get(
       `https://api.pandascore.co/tournaments/upcoming`,
       {
         params: {
-          "filter[videogame_id]": game.id, // Use game ID for filtering
-          token: process.env.PANDASCORE_API_KEY,
+          videogame: 22, //game.id, // Use game ID for filtering
         },
         headers: {
           accept: "application/json",
+          Authorization: `mGAvPkwPA2Sc-OLgGwDQQJ1stUsFtow4cLtYO2MNLSFON-0Rnqw`,
         },
       }
     );
@@ -46,16 +51,16 @@ router.get("/matches/:gameSlug", async (req, res) => {
       `https://api.pandascore.co/matches/upcoming`,
       {
         params: {
-          "filter[videogame_id]": game.id,
-          token: process.env.PANDASCORE_API_KEY,
+          videogame: 22, //game.id, // Use game ID for filtering
         },
         headers: {
           accept: "application/json",
+          Authorization: `mGAvPkwPA2Sc-OLgGwDQQJ1stUsFtow4cLtYO2MNLSFON-0Rnqw`,
         },
       }
     );
 
-    // Transform matches data for front-end consumption
+    // Transform matches data for front-end use
     const transformData = matchesResponse.data.map((match) => ({
       matchId: match.id,
       matchName: match.name,

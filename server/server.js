@@ -38,7 +38,7 @@ app.get("/", (req, res) => {
   res.sendFile(indexPath);
 });
 
-// Route for fetching player stats by summoner name
+/* Route for fetching player stats by summoner name
 app.get("/player-stats/:summonerName", async (req, res) => {
   const summonerName = req.params.summonerName;
   const apiUrl = `https://na1.api.riotgames.com/lol/summoner/v4/summoners/by-name/${summonerName}`;
@@ -52,7 +52,7 @@ app.get("/player-stats/:summonerName", async (req, res) => {
     console.error("Error fetching player stats:", error);
     res.status(500).json({ msg: "Server error while fetching player stats" });
   }
-});
+}); */
 
 // User Registration Route
 app.post(

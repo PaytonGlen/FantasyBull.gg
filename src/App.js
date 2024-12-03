@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SignUp from "./Registration/Signup.js";
 import Login from "./Registration/Login.js";
-import Header from "./UIDisplay/Header.js";
+import Header from "./UIComponents/Header.js";
 import { AuthProvider } from "./AuthContext.js"; // Provide context at the top level
 import MoneyBag from "./images/Images for Website/SecureMoneyBag.svg";
 import MoneyStack from "./images/Images for Website/StackOfMoney.svg";
@@ -46,13 +46,7 @@ function App() {
         <div>
           <Header />
           <Routes>
-            <Route
-              path="/dashboard"
-              element={
-                isAuthenticated ? <Dashboard /> : <Navigate to="/login" />
-              }
-            />
-
+            <Route path="/" element={<Dashboard />} />
             <Route path="/signup" element={<SignUp />} />
             <Route path="/login" element={<Login />} />
           </Routes>

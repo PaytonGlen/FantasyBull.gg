@@ -26,6 +26,8 @@ const Dashboard = () => {
 
       try {
         console.log("Attempting to fetch matches for:", selectedGame);
+
+        // Fetch matches for the selected game
         const response = await axios.get(
           `http://localhost:5001/api/matches/${selectedGame.slug}`
         );
