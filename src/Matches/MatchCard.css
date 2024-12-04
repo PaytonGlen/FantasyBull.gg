@@ -1,102 +1,119 @@
 .match-card {
-  background-color: #2c2c2c;
+  background-color: rgba(96, 130, 182, 0); /*  rgb(10, 50, 137) */
   padding: 20px;
   border-radius: 10px;
   margin-bottom: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
   color: #ffffff;
-  transition: background-color 0.3s ease;
-}
-
-.match-card:hover {
-  background-color: #383838;
-}
-
-.match-card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.match-card-header .match-time {
-  font-size: 1rem;
-  color: #cccccc;
-}
-
-.match-card-header .league-info {
-  display: flex;
-  align-items: center;
-}
-
-.match-card-header .league-info img {
-  height: 40px;
-  margin-right: 10px;
-}
-
-.teams-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 10px 0;
-}
-
-.team {
   display: flex;
   flex-direction: column;
+  gap: 15px;
+  border: 1px solid #ffd700;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Match Image and Start Time */
+.match-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.match-time {
+  font-size: 2rem;
+  color: #cccccc;
+  text-align: center;
+}
+
+/* League Info */
+.league-info {
+  display: flex;
   align-items: center;
-  background-color: #444;
-  padding: 10px;
+  gap: 10px;
+}
+
+.league-image {
+  height: 50px;
   border-radius: 5px;
 }
 
-.team img {
-  height: 50px;
-  margin-bottom: 10px;
+.league-details {
+  display: flex;
+  flex-direction: column;
 }
 
-.team-name {
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.team-record {
-  font-size: 0.9rem;
-  color: #cccccc;
-}
-
-.win-percentage {
-  font-weight: bold;
+.league-name {
   font-size: 1.2rem;
-  color: #00ff00;
-  margin-top: 5px;
+  font-weight: bold;
 }
 
-.stake-info {
+.stream-link {
+  font-size: 0.9rem;
+  color: #00ff00;
+  text-decoration: none;
+}
+
+.stream-link:hover {
+  text-decoration: underline;
+}
+
+/* Teams */
+.teams {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-top: 15px;
+  gap: 10px;
+}
+
+.team {
+  flex: 1;
+  text-align: center;
   background-color: #333;
   padding: 10px;
   border-radius: 5px;
 }
 
-.stake-info .stake-amount {
-  color: #00ff00;
+.team-image {
+  height: 50px;
+  margin-bottom: 5px;
+}
+
+.team-name {
+  font-size: 1rem;
   font-weight: bold;
-  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.team-score {
+  font-size: 0.9rem;
+  color: #cccccc;
+}
+
+/* Pool Bets */
+.pool-bets {
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
 }
 
 .bet-button {
   background-color: #444;
-  color: #ffffff;
-  padding: 10px;
-  border-radius: 5px;
+  color: #ffd700;
+  border-radius: 15px;
+  border: none;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .bet-button:hover {
   background-color: #555;
+}
+
+.match-cards {
+  display: grid;
+  grid-template-columns: repeat(
+    3,
+    1fr
+  ); /*repeat(auto-fill, minmax(48&, 2fr)); */
+  gap: 20px; /* 20px gap between each card */
+  padding: 20px;
+  justify-content: center;
 }

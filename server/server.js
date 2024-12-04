@@ -1,6 +1,9 @@
+import dotenv from "dotenv";
+dotenv.config({ path: "./server/.env" });
+
 import express from "express";
 import mongoose from "mongoose";
-import dotenv from "dotenv";
+
 import User from "./models/user.js";
 import bcrypt from "bcrypt";
 import { check, validationResult } from "express-validator";
@@ -15,8 +18,6 @@ import path from "path";
 import gameAPI from "./routes/gameAPI.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-
-dotenv.config({ path: "./server/.env" });
 
 const PORT = process.env.PORT || 5001;
 const app = express();

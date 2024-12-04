@@ -1,15 +1,25 @@
+import dotenv from "dotenv";
+dotenv.config({
+  path: "/Users/pglen/Desktop/1TourneyZone/TourneyZone/server/.env",
+});
 import express from "express";
 import axios from "axios";
-import dotenv from "dotenv";
+
 import games from "../games.js";
 
-dotenv.config();
-
 const router = express.Router();
+
 const PANDASCORE_API_KEY = process.env.PANDASCORE_API_KEY;
 const PANDASCORE_API_URL = process.env.PANDASCORE_API_URL;
 const PANDASCORE_TOURNAMENT_URL = process.env.PANDA_API_URL_TOURNAMENTS;
 const PANDASCORE_MATCH_URL = process.env.PANDA_API_URL_MATCHES;
+
+console.log(
+  PANDASCORE_API_KEY,
+  PANDASCORE_API_URL,
+  PANDASCORE_TOURNAMENT_URL,
+  PANDASCORE_MATCH_URL
+);
 
 // Fetch upcoming matches for a specific game
 router.get("/matches/:gameSlug", async (req, res) => {
@@ -26,14 +36,14 @@ router.get("/matches/:gameSlug", async (req, res) => {
     // Fetch upcoming tournaments for the game
 
     const tournamentsResponse = await axios.get(
-      `https://api.pandascore.co/tournaments/upcoming`,
+      `${PANDASCORE_TOURNAMENT_URL}`,
       {
         params: {
-          videogame: 22, //game.id, // Use game ID for filtering
+          videogame: 1, //game.id, // Use game ID for filtering
         },
         headers: {
           accept: "application/json",
-          Authorization: `mGAvPkwPA2Sc-OLgGwDQQJ1stUsFtow4cLtYO2MNLSFON-0Rnqw`,
+          Authorization: `Bearer ${PANDASCORE_API_KEY}`,
         },
       }
     );
@@ -47,18 +57,15 @@ router.get("/matches/:gameSlug", async (req, res) => {
     }, {});
 
     // Fetch upcoming matches for the game
-    const matchesResponse = await axios.get(
-      `https://api.pandascore.co/matches/upcoming`,
-      {
-        params: {
-          videogame: 22, //game.id, // Use game ID for filtering
-        },
-        headers: {
-          accept: "application/json",
-          Authorization: `mGAvPkwPA2Sc-OLgGwDQQJ1stUsFtow4cLtYO2MNLSFON-0Rnqw`,
-        },
-      }
-    );
+    const matchesResponse = await axios.get(`${PANDASCORE_MATCH_URL}`, {
+      params: {
+        videogame: 1, //game.id, // Use game ID for filtering
+      },
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${PANDASCORE_API_KEY}`,
+      },
+    });
 
     // Transform matches data for front-end use
     const transformData = matchesResponse.data.map((match) => ({
