@@ -65,7 +65,7 @@ const Dashboard = () => {
             ))}
           </div>
         ) : (
-          <p>Please select a game to view upcoming matches.</p>
+          <p>Please select a game to view players.</p>
         )}
       </div>
     </div>

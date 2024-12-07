@@ -25,7 +25,7 @@ const MatchCard = ({ match }) => {
   return (
     <div className="match-card">
       {/* Match Image and Start Time */}
-      <img src={match.matchImageUrl} alt="Match" className="match-image" />
+      <p className="game-name">{match.gameName}</p>
       <p className="match-time">
         {isToday ? (
           <>
@@ -90,7 +90,7 @@ const MatchCard = ({ match }) => {
               }
             >
               <h2>{`${match.teams[0]?.name || "Unknown Team"}`}</h2>
-              <h3>Team A Pool Amount: $15,000</h3>
+              <h3>Pool Amount: $15,000</h3>
             </button>
             <button
               className="bet-button"
@@ -100,7 +100,7 @@ const MatchCard = ({ match }) => {
               }
             >
               <h2>{`${match.teams[1]?.name || "Unknown Team"}`}</h2>
-              <h3>Team B Pool Amount: $8,000</h3>
+              <h3>Pool Amount: $8,000</h3>
             </button>
           </>
         ) : (

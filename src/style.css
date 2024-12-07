@@ -1,13 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: Tektur, sans-serif;
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
-  background: linear-gradient(to bottom, rgb(10, 50, 137), #000000);
+  background: #000000;
   background-attachment: fixed;
   color: #ffffff;
   padding-bottom: 200px;
 }
+
+/* Royal blue for old body color: rgb(10, 50, 137) */
+/* linear-gradient(to bottom, rgb(10, 50, 137), #000000) */
 
 @keyframes gradientBG {
   0% {
@@ -19,76 +24,6 @@ body {
   100% {
     background-position: 0% 50%;
   }
-}
-
-.header {
-  background-color: rgba(
-    40,
-    38,
-    38,
-    0.7
-  ); /* Changed to rgba for transparency */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  box-sizing: border-box;
-  font-size: 15px;
-  padding-right: 15px;
-}
-
-.signup {
-  background-color: rgb(10, 50, 137);
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  margin-left: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.3s;
-}
-
-.signup:hover {
-  opacity: 0.7;
-}
-
-.signup:active {
-  opacity: 1;
-}
-
-.login {
-  background-color: rgb(75, 78, 76);
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  margin-left: 10px;
-  cursor: pointer;
-  border-radius: 5px;
-}
-
-.login:hover {
-  opacity: 0.7;
-}
-
-.login:active {
-  opacity: 1;
-}
-
-.logo {
-  display: flex;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  color: #ffffff;
-}
-
-.logo-img {
-  width: 100px;
-  height: 100px;
-  margin-right: 10px;
 }
 
 .navigation {

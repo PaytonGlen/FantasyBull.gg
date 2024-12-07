@@ -12,16 +12,20 @@ const Header = () => {
     <header className="header">
       <div className="logo">
         <img src={TZ2} alt="Tourney Zone Logo" className="logo-img" />
+        <h3>FantasyBull</h3>
       </div>
       <nav className="navigation">
         {isLoggedIn ? (
           <>
-            <h2>
-              {new Intl.NumberFormat("en-US", {
-                style: "currency",
-                currency: "USD",
-              }).format(users?.bank || 0)}
-            </h2>
+            <div className="user-info">
+              <h2 style={{ color: "#39ff14" }}>
+                {new Intl.NumberFormat("en-US", {
+                  style: "currency",
+                  currency: "USD",
+                }).format(users?.bank || 0)}
+              </h2>
+              <h3>{users?.username}</h3>
+            </div>
             <Link to="/">Home</Link>
             <Link to="/make-your-team">Make your team</Link>
             <Link to="/how-to-play">How to Play</Link>

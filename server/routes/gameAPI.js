@@ -78,6 +78,7 @@ router.get("/matches/:gameSlug", async (req, res) => {
         name: match.league.name,
         imageUrl: match.league.image_url,
       },
+      gameName: game.name,
       teams: match.opponents.map((opponent) => ({
         teamId: opponent.opponent.id,
         name: opponent.opponent.name,

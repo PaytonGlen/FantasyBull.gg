@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+
+.body {
+  font-family: Tektur;
+}
+
+.homepage {
+  background-color: #000;
+  color: #fff;
+}
+
+.hero-section {
+  text-align: center;
+  padding: 50px 20px;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.9),
+    rgba(40, 40, 40, 0.9)
+  );
+}
+
+.hero-section h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+.hero-section p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.store-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.store-icon {
+  width: 120px; /* Adjust based on your assets */
+}
+
+.categories-section {
+  padding: 50px 20px;
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.category-card {
+  background-color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  width: 30%;
+}
+
+.category-card img {
+  width: 80px; /* Placeholder for category image */
+}
+
+.category-card h3 {
+  margin: 10px 0;
+}
+
+.category-card button {
+  background-color: #dcb723;
+  border: none;
+  padding: 10px 20px;
+  color: #000;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.steps-section {
+  background-color: rgba(30, 30, 30, 0.95);
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.steps-section h2 {
+  margin-bottom: 20px;
+}
+
+.steps-container {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+  gap: 20px;
+}
+
+.step {
+  width: 30%;
+}
+
+.step-number {
+  background-color: #dcb723;
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 10px;
+}
+
+.features-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.features-container {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.feature {
+  text-align: center;
+  width: 30%;
+}
+
+.feature img {
+  width: 50px; /* Placeholder for feature icon */
+  margin-bottom: 10px;
+}
+
+.promise-section {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: rgba(0, 40, 150, 0.9);
+  padding: 50px 20px;
+}
