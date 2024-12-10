@@ -1,0 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+
+.contest-types h2 {
+  font-size: 50px;
+  margin-left: 75px;
+}
+
+.contest-types {
+  display: flex;
+  flex-direction: column;
+}
+
+.contest-card {
+  display: flex;
+  flex-direction: column;
+}

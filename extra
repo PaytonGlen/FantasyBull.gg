@@ -1,0 +1,27 @@
+ //const scrollableSectionRef = useRef(null);
+  //const [selectedGame, setSelectedGame] = useState(null);
+
+  /*
+  const scrollLeftFunction = () => {
+    if (scrollableSectionRef.current) {
+      scrollableSectionRef.current.scrollBy({
+        left: -150,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const scrollRightFunction = () => {
+    if (scrollableSectionRef.current) {
+      scrollableSectionRef.current.scrollBy({
+        left: 150,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // Handle game card click
+  const handleCardClick = (game) => {
+    console.log("Game clicked:", game);
+    setSelectedGame(game); // Set the selected game
+  }; */

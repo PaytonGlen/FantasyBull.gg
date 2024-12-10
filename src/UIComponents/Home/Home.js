@@ -7,6 +7,7 @@ import Features from "./Features.js";
 import PromiseComponent from "./PromiseSection.js";
 import VideoGallery from "./VideoGallery.js";
 import Hero from "./Hero.js";
+import GameModesTxt from "./GameModesTxt.js";
 
 const HomePage = () => {
   return (
@@ -16,7 +17,7 @@ const HomePage = () => {
 
       {/* Video Gallery Section */}
       <VideoGallery />
-
+      <GameModesTxt />
       {/* Categories Section */}
       <Categories />
 

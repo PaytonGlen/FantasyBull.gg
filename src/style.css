@@ -1,8 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap");
 
 body {
   margin: 0;
-  font-family: Tektur, sans-serif;
+  font-family: "Lato", sans-serif;
   background-size: 400% 400%;
   animation: gradientBG 15s ease infinite;
   background: #000000;
@@ -59,7 +60,7 @@ body {
 }
 
 .scrollable-section::-webkit-scrollbar-thumb {
-  background: rgb(25, 70, 157);
+  background: rgb(25, 70, 157) !important;
   border-radius: 10px;
 }
 
@@ -67,7 +68,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background: rgb(25, 70, 157);
+  background: rgb(25, 70, 157) !important;
   color: #ffffff;
   border: none;
   padding: 10px;
@@ -95,44 +96,6 @@ body {
 
 .main-section {
   background-color: rgba(0, 0, 0, 0);
-}
-
-.contest-types {
-  background-color: rgba(0, 0, 0, 0);
-  padding: 40px 0;
-  text-align: center;
-}
-
-.contest-types h2 {
-  font-size: 28px;
-  margin-bottom: 40px;
-  color: #ffffff;
-}
-
-.contest-cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
-
-.contest-card {
-  background-color: rgba(0, 0, 0, 0);
-  color: #f9f5f5;
-  padding: 20px;
-  width: 20%;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.contest-card img {
-  width: 80px;
-  height: auto;
-  margin-bottom: 10px;
-}
-
-.contest-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
 }
 
 .logo-image {

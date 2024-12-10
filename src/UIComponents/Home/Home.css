@@ -1,10 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Audiowide&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Finger+Paint&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Tektur:wght@400;700&display=swap");
 
 .body {
-  font-family: Tektur;
+  font-family: "Tektur", sans-serif !important;
 }
 
 .homepage {
+  background: linear-gradient(to bottom, #000, rgba(0, 40, 150, 0.9));
   background-color: #000;
   color: #fff;
 }
@@ -14,8 +16,8 @@
   padding: 50px 20px;
   background: linear-gradient(
     180deg,
-    rgba(0, 0, 0, 0.9),
-    rgba(40, 40, 40, 0.9)
+    rgba(40, 40, 40, 0.7),
+    rgba(0, 0, 0, 0.7)
   );
 }
 
@@ -40,32 +42,38 @@
 }
 
 .categories-section {
-  padding: 50px 20px;
+  padding: 150px 20px;
   display: flex;
   justify-content: space-around;
   gap: 20px;
+  margin: 50px 0;
 }
 
 .category-card {
-  background-color: #222;
-  padding: 20px;
+  background-color: rgba(0, 40, 150, 0.9);
+  padding: 10px;
   border-radius: 10px;
   text-align: center;
-  width: 30%;
+  width: 20%;
 }
 
 .category-card img {
-  width: 80px; /* Placeholder for category image */
+  width: 100%; /* Placeholder for category image */
 }
 
 .category-card h3 {
   margin: 10px 0;
 }
 
+.categories-section .text {
+  flex: 1;
+  padding: 20px;
+}
+
 .category-card button {
   background-color: #dcb723;
   border: none;
-  padding: 10px 20px;
+  padding: 10px 10px;
   color: #000;
   font-weight: bold;
   border-radius: 5px;
@@ -123,14 +131,38 @@
 }
 
 .feature img {
-  width: 50px; /* Placeholder for feature icon */
+  width: 55%; /* Placeholder for feature icon */
   margin-bottom: 10px;
+}
+
+.feature p {
+  font-size: 22px;
+  font-weight: bold;
 }
 
 .promise-section {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  background-color: rgba(0, 40, 150, 0.9);
+  background-color: rgba(17, 59, 176, 0.9);
   padding: 50px 20px;
+}
+
+.promise-section img {
+  height: 90px;
+  width: 90px;
+}
+
+.mode-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  height: 100%; /* Ensure it takes up the full height of the parent container */
+}
+
+.game-mode-txt {
+  font-size: 48px; /* Make the text huge */
+  font-weight: bold;
+  text-align: center; /* Center align the text within its container */
+  margin-top: 175px;
 }
